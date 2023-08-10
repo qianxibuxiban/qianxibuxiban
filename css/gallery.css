@@ -1,0 +1,29 @@
+#gallery {
+  /* background-color: grey; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  text-align: center;
+}
+
+#h1-lucija {
+  margin-top: 80px;
+}
+#h1-lucija2 {
+  /* margin-top: 80px; */
+}
+#lucija {
+    /* position: absolute;
+    top: 100px; */
+
+}
+
+
+#lucija2 {
+    /* position: absolute;
+    top: 1800px; */
+    /* margin-top: 100px; */
+}

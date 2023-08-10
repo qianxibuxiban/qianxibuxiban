@@ -1,0 +1,41 @@
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+background-color: red;
+height: 60px;
+}
+
+.menu-item {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+#lang-menu {
+  position: absolute;
+  right: 20px;
+}
+
+/* Show the gallery options when hovering over .dropdown element */
+.dropdown:hover #gallery-select {
+  display: block;
+}
+
+/* Hide the gallery text when hovering over .dropdown element and gallery options */
+.dropdown:hover ul.dropdown-btn {
+  display: none;
+}
+
+/* Initially hide the gallery options */
+#gallery-select {
+  display: none;
+}
+
+/* Apply grey hover effect only to individual options */
+.menu-item:hover {
+color: blue;
+}

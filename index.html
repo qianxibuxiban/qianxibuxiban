@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <title>Vite App</title>
+
+
+  </head>
+  <body>
+
+    <div id="app"></div>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="./js/nav.js"></script>
+
+    <script type="module" src="/js/lang/lang.js"></script>
+    <!-- menu -->
+    <div id="menu">
+      <ul class="menu-item" id="lang-home">
+        Home
+      </ul>
+      <ul class="menu-item" id="lang-services">
+        Services
+      </ul>
+      <ul class="menu-item" id="lang-about">
+        About
+      </ul>
+      <ul class="menu-item" id="lang-gallery">Gallery
+
+      </ul>
+      <!-- Dropdown menu for language selection -->
+      <ul id="lang-menu">
+        <label for="language-select"></label>
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="hr">Hrvatski</option>
+          <!-- Add more language options as needed -->
+        </select>
+      </ul>
+    </div>
+
+    <script type="module" src="/js/about.js"></script>
+    <script type="module" src="./js/photoSwipe.js"></script>
+
+
+
+
+    <div id="home">
+      <div class="container">
+
+        
+      </div>
+      <div id="ani-image">
+
+      </div>
+      </div>
+      <!-- <img id="full-image" ></img> -->
+    </div>
+    <div id="services">
+   <!-- generate thumbes -->
+<label>Image File:</label><br/>
+<input type="file" id="imageLoader" name="imageLoader"/>
+<canvas id="imageCanvas"></canvas>
+<div id="imageContainer"></div>
+<div id="getDimension"></div>
+<!-- generate thumbes -->
+    </div>
+     <div id="about">
+      <h1 id="h1-lucija">Lucija</h1>
+      <p id="description"></p>
+      <p id="facilities"></p>
+      <h1 id="h1-lucija2">Lucija 2</h1>
+      <p id="description2"></p>
+      <p id="facilities2"></p>
+    </div>
+    <div id="gallery">
+      <h1 id="h1-lucija">Lucija</h1>
+      <div class="pswp-gallery pswp-gallery--single-column" id="lucija"></div>
+      <h1 id="h1-lucija2">Lucija 2</h1>
+      <div class="pswp-gallery pswp-gallery--single-column" id="lucija2"></div>
+    </div>
+    </div>
+    <!-- / menu -->
+
+  
+  <script type="module" src="./js/ani/ani2.js">
+
+  </script>
+  
+  
+  
+  
+  
+    
+  
+
+
+<script type="module" src="./js/backup/thumbnailGenerationSave.js"></script>
+
+
+            </head>
+          
+
+    
+  </body>
+</html>
