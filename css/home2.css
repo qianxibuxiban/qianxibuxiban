@@ -45,7 +45,7 @@ display: block;
 
 #ani-image {
     position: absolute; 
-    background-size: cover;
+    background-size: fit;
     background-position: center center;
     background-repeat: no-repeat;
     display: block;

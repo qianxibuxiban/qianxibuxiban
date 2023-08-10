@@ -59,15 +59,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const randomThumb = randomThumbWrapper.querySelector(".full-image");
 
     let aniImage = document.getElementById("ani-image");
-    aniImage.style.left = ``;
-    aniImage.style.top = ``;
+
     aniImage.style.backgroundImage = randomThumb.style.backgroundImage;
+    aniImage.style.transition = "none";
 
     originalPosition(aniImage, randomThumb);
+    let rect = aniImage.getBoundingClientRect();
+    console.log("🚀 ~ file: ani2.js:67 ~ animate ~ rect:", rect);
+    aniImage.style.transition =
+      "left 2s ease, top 2s ease, width 2s ease, height 2s ease";
     centerScaleThumb(aniImage);
     setTimeout(function () {
       originalPosition(aniImage, randomThumb);
-    }, 2000);
+    }, 4000);
 
     setTimeout(function () {
       animate();
