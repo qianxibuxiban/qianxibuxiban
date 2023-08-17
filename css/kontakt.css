@@ -1,5 +1,5 @@
 
-#services {
+#kontakt {
     /* background-color: grey; */
     position: absolute;
     top: 0;
@@ -7,4 +7,8 @@
     right: 0;
     bottom: 0;
     overflow: auto;
+  }
+
+  #adress-lucija {
+    margin-top: 100px;
   }

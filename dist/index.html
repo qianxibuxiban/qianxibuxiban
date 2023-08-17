@@ -7,10 +7,8 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <title>Vite App</title>
-
-
-    <script type="module" crossorigin src="/assets/index-a0b0b260.js"></script>
-    <link rel="stylesheet" href="/assets/index-81cb9b9e.css">
+    <script type="module" crossorigin src="/lucija/assets/index-2c53f726.js"></script>
+    <link rel="stylesheet" href="/lucija/assets/index-060b189b.css">
   </head>
   <body>
 
@@ -20,64 +18,38 @@
 
     
     <!-- menu -->
-    <div id="menu">
-      <ul class="menu-item" id="lang-home">
-        Home
-      </ul>
-      <ul class="menu-item" id="lang-services">
-        Services
-      </ul>
-      <ul class="menu-item" id="lang-about">
-        About
-      </ul>
-      <ul class="menu-item" id="lang-gallery">Gallery
-
-      </ul>
-      <!-- Dropdown menu for language selection -->
-      <ul id="lang-menu">
-        <label for="language-select"></label>
-        <select id="language-select">
-          <option value="en">English</option>
-          <option value="hr">Hrvatski</option>
-          <!-- Add more language options as needed -->
-        </select>
-      </ul>
-    </div>
+    <button id="slide-menu-button">☰</button>
+      
+    <div id="slide-menu" class="slide-menu"></div>
+   <div id='menu'></div>
 
     
     
-
-
-
-
     <div id="home">
-      <div class="container">
+      <div class="container"></div>
+      <div id="ani-image"></div>
+      <div id="wellcome-conatainer">    </div>
+      <h1 id="lang-welcome">Dobrodošli u Apartmane Lucija!</h1>
 
-        
       </div>
-      <div id="ani-image">
-
-      </div>
-      </div>
-      <!-- <img id="full-image" ></img> -->
     </div>
-    <div id="services">
-   <!-- generate thumbes -->
-<label>Image File:</label><br/>
-<input type="file" id="imageLoader" name="imageLoader"/>
-<canvas id="imageCanvas"></canvas>
-<div id="imageContainer"></div>
-<div id="getDimension"></div>
-<!-- generate thumbes -->
-    </div>
+   
      <div id="about">
       <h1 id="h1-lucija">Lucija</h1>
-      <p id="description"></p>
-      <p id="facilities"></p>
+      <p id="lang-description"></p>
+      <p id="lang-facilities"></p>
       <h1 id="h1-lucija2">Lucija 2</h1>
-      <p id="description2"></p>
-      <p id="facilities2"></p>
+      <p id="lang-description2"></p>
+      <p id="lang-facilities2"></p>
     </div>
+    <div id="kontakt">
+<!-- <h1>Lucija</h1>
+  <p id="adress-lucija">📍 Naselje Monfiorenzo 17, 52210, Rovinj, Croatia</p>
+<p>📱 +385958018625</p>
+<h1>Lucija 2</h1>
+  <p id="adress-lucija">📍 Naselje Monfiorenzo 17, 52210, Rovinj, Croatia</p>
+<p>📱 +385958018625</p> -->
+       </div>
     <div id="gallery">
       <h1 id="h1-lucija">Lucija</h1>
       <div class="pswp-gallery pswp-gallery--single-column" id="lucija"></div>
@@ -86,24 +58,10 @@
     </div>
     </div>
     <!-- / menu -->
-
-  
-  
-  
-  
-  
-  
   
     
-  
-
-
-
-
+  </script>
 
             </head>
-          
-
-    
   </body>
 </html>

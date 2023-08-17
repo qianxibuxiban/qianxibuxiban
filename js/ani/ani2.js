@@ -1,10 +1,14 @@
 // Get a reference to the container element
 const container = document.querySelector(".container");
+let thumbHeightOrWidth =
+  window.innerHeight > window.innerWidth
+    ? "thumb-wrapper-height"
+    : "thumb-wrapper";
 
-function addImages(index, path) {
+function addImages(index, path, origImg) {
   // Create a new div with the class "thumb-wrapper"
   const thumbWrapper = document.createElement("div");
-  thumbWrapper.classList.add("thumb-wrapper");
+  thumbWrapper.classList.add(thumbHeightOrWidth);
 
   // Create the first image element for the thumbnail
   //   const thumbImage = document.createElement("img");
@@ -16,6 +20,7 @@ function addImages(index, path) {
   const fullImage = document.createElement("div");
   fullImage.classList.add("full-image");
   fullImage.style.backgroundImage = path;
+  fullImage.origImg = origImg;
   //   fullImage.style.width = "calc(100vw / 2)";
   //   fullImage.style.height = "calc(100vh / 3 - 80px)";
   fullImage.style.backgroundSize = "cover";
@@ -30,23 +35,33 @@ function addImages(index, path) {
   // Append the thumb-wrapper div to the container
   container.appendChild(thumbWrapper);
 }
-for (let i = 0; i < 16; i++) {
-  const path = `url('assets/img/lucija/${i + 1}.png')`; //`assets/img/lucija/${i}.png`;
-  addImages(i, path);
+function setImages() {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  for (let i = 0; i < 16; i++) {
+    const path = `url('assets/thumbs/lucija/${i + 1}_thumbnail.jpeg')`; //`assets/img/lucija/${i}.png`;
+    const origImg = `url('assets/img/lucija/${i + 1}.png')`;
+    addImages(i, path, origImg);
+  }
+  for (let i = 1; i < 12; i++) {
+    const path = `url('assets/thumbs/lucija2/${i + 1}_thumbnail.jpeg')`;
+    const origImg = `url('assets/img/lucija2/${i + 1}.png')`;
+    addImages(i + 16, path, origImg);
+  }
+  addImages(27, `url('assets/img/lucija2/3.png')`);
 }
-for (let i = 1; i < 13; i++) {
-  const path = `url('assets/img/lucija/${i + 1}.png')`;
-  addImages(i + 16, path);
-}
+setImages();
 // style="background:url('http://i.imgur.com/RiX7XfW.jpg')
 document.addEventListener("DOMContentLoaded", function () {
   function animate() {
     // Get all the thumbnail wrappers
-    const thumbWrappers = document.querySelectorAll(".thumb-wrapper");
+    const thumbWrappers = document.querySelectorAll(`.${thumbHeightOrWidth}`);
 
     // Function to get a random index
     function getRandomIndex(max) {
       return Math.floor(Math.random() * max);
+      //   return 25;
     }
 
     // Function to move the thumbnail to the "scale-thumb" div and apply 2x scaling
@@ -60,47 +75,134 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let aniImage = document.getElementById("ani-image");
 
-    aniImage.style.backgroundImage = randomThumb.style.backgroundImage;
+    aniImage.style.backgroundImage = randomThumb.origImg;
     aniImage.style.transition = "none";
-
-    originalPosition(aniImage, randomThumb);
+    const thumbImgPath = randomThumb.style.backgroundImage;
+    randomThumb.style.backgroundImage = "";
+    const wellcomeMsg = document.getElementById("lang-welcome");
+    const wellcomeContainer = document.getElementById("wellcome-conatainer");
+    originalPosition(aniImage, randomThumb, wellcomeMsg, wellcomeContainer);
     let rect = aniImage.getBoundingClientRect();
-    console.log("🚀 ~ file: ani2.js:67 ~ animate ~ rect:", rect);
     aniImage.style.transition =
       "left 2s ease, top 2s ease, width 2s ease, height 2s ease";
-    centerScaleThumb(aniImage);
+
+    const aniImgSrc = aniImage.style.backgroundImage.split('"')[1];
+    getImageDimensions(aniImgSrc, aniImage, wellcomeMsg, wellcomeContainer);
     setTimeout(function () {
-      originalPosition(aniImage, randomThumb);
+      originalPosition(aniImage, randomThumb, wellcomeMsg, wellcomeContainer);
     }, 4000);
 
     setTimeout(function () {
       animate();
+      randomThumb.style.backgroundImage = thumbImgPath;
     }, 6000);
   }
   animate();
 });
 
-function originalPosition(element, randomT) {
+function originalPosition(element, randomT, wellcomeMsg, wellcomeContainer) {
   const rectRandomThumb = randomT.getBoundingClientRect();
-
+  wellcomeContainer.style.opacity = 0.2;
+  wellcomeMsg.style.opacity = 1;
   // Apply position and size to aniImage
   element.style.width = `${rectRandomThumb.width}px`;
   element.style.height = `${rectRandomThumb.height}px`;
   element.style.left = `${rectRandomThumb.left}px`;
   element.style.top = `${rectRandomThumb.top}px`;
 }
-function centerScaleThumb(element) {
+function centerScaleThumb(
+  element,
+  width,
+  height,
+  wellcomeMsg,
+  wellcomeContainer
+) {
+  wellcomeContainer.style.opacity = 0.7;
+  wellcomeMsg.style.opacity = 0;
+
   if (element) {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    // Triggering reflow to ensure CSS transition works
-
-    const targetLeft = (viewportWidth - viewportWidth / 1.2) / 2;
-    const targetTop = (viewportHeight - viewportHeight / 1.2) / 2;
+    const newWidHeight = recalcImgDimen(
+      width,
+      height,
+      viewportWidth / 1.2,
+      viewportHeight / 1.2
+    );
+    const targetLeft = (viewportWidth - newWidHeight.width) / 2;
+    const targetTop = (viewportHeight - newWidHeight.height) / 2;
     element.style.left = `${targetLeft}px`;
     element.style.top = `${targetTop}px`;
-    element.style.height = viewportHeight / 1.2 + "px";
-    element.style.width = viewportWidth / 1.2 + "px";
+    element.style.width = `${newWidHeight.width}px`; // viewportWidth / 1.7 + "px";
+    element.style.height = `${newWidHeight.height}px`; //viewportHeight / 1.2 + "px";
   }
-  let rect = element.getBoundingClientRect();
+}
+function getImageDimensions(imageUrl, element, wellcomeMsg, wellcomeContainer) {
+  // Create a new Image object
+  var image = new Image();
+  // Set the source of the Image object to the image's URL
+  image.src = imageUrl;
+  // Return a promise to handle the asynchronous loading of the image
+  return new Promise(function (resolve, reject) {
+    // Once the image is loaded, resolve the promise with its width and height
+    image.onload = function () {
+      var width = this.width;
+      var height = this.height;
+      resolve([width, height]);
+      centerScaleThumb(element, width, height, wellcomeMsg, wellcomeContainer);
+    };
+    // If there's an error loading the image, reject the promise
+    image.onerror = function () {
+      reject(new Error("Failed to load the image."));
+    };
+  });
+}
+
+window.addEventListener("resize", function () {
+  adoptToScreen();
+});
+adoptToScreen();
+function adoptToScreen() {
+  let aniImage = document.getElementById("ani-image");
+  aniImage.style.transition = "none";
+  aniImage.style.backgroundImage = "";
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  if (width < height) {
+    thumbHeightOrWidth = "thumb-wrapper-height";
+    // Apply styles for width smaller than height
+    document.querySelector(".container").style.gridTemplateColumns =
+      "repeat(4, 1fr)";
+    setImages();
+  } else {
+    thumbHeightOrWidth = "thumb-wrapper";
+    document.querySelector(".container").style.gridTemplateColumns =
+      "repeat(7, 1fr)";
+
+    setImages();
+  }
+}
+
+function recalcImgDimen(imageWidth, imageHeight, screenWidth, screenHeight) {
+  // Given image dimensions and screen dimensions
+
+  // Calculate the aspect ratio of the image
+  const aspectRatio = imageWidth / imageHeight;
+
+  // Calculate the new dimensions that fit within the screen
+  let newWidth = imageWidth;
+  let newHeight = imageHeight;
+
+  if (newWidth > screenWidth) {
+    newWidth = screenWidth;
+    newHeight = newWidth / aspectRatio;
+  }
+
+  if (newHeight > screenHeight) {
+    newHeight = screenHeight;
+    newWidth = newHeight * aspectRatio;
+  }
+
+  // Set the image dimensions
+  return { width: newWidth, height: newHeight };
 }

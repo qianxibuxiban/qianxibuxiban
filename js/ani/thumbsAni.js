@@ -1,9 +1,10 @@
-{
-  /* <div class="thumb-wrapper">
-          <img class="thumb" src="assets/thumbs/lucija/1_thumbnail.jpeg" alt="Thumb 1">
-          <img class="full-image" src="assets/img/lucija/1.png" alt="Full Image 1">
-        </div> */
-}
+// <!-- generate thumbes -->
+// <label>Image File:</label><br/>
+// <input type="file" id="imageLoader" name="imageLoader"/>
+// <canvas id="imageCanvas"></canvas>
+// <div id="imageContainer"></div>
+// <div id="getDimension"></div>
+// <!-- generate thumbes -->
 
 document.addEventListener("DOMContentLoaded", function () {
   // Get all the thumbnail wrappers

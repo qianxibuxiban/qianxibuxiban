@@ -1,41 +1,68 @@
 #menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: flex;
-  width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 1;
+display: flex;
+width: 100%;
 background-color: red;
 height: 60px;
 }
 
+#slide-menu {
+position:absolute;
+top: 0px;
+left: 0px;
+bottom: 0px;
+width: 40%;
+background-color: grey;
+z-index: 2;
+display: 'block';
+}
+
+#slide-menu-button {
+position: absolute;
+top: 2px;
+left: 2px;
+z-index: 3;
+background-color: red;
+font-size: 30px;
+margin: 0px;
+padding: 5px;
+}
+
 .menu-item {
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 10px;
+margin-right: 20px;
+margin-left: 20px;
+margin-top: 10px;
 }
 
 #lang-menu {
-  position: absolute;
-  right: 20px;
+margin-right: 20px;
+margin-left: 20px;
+margin-top: 10px;
 }
 
 /* Show the gallery options when hovering over .dropdown element */
 .dropdown:hover #gallery-select {
-  display: block;
+display: block;
 }
 
 /* Hide the gallery text when hovering over .dropdown element and gallery options */
 .dropdown:hover ul.dropdown-btn {
-  display: none;
+display: none;
 }
 
 /* Initially hide the gallery options */
 #gallery-select {
-  display: none;
+display: none;
 }
 
 /* Apply grey hover effect only to individual options */
 .menu-item:hover {
+color: blue;
+}
+
+#lang-menu:hover {
 color: blue;
 }
