@@ -80,43 +80,45 @@ height: calc(100vh /8);
 
     }
 
+    .custom-size {
+      width: 200px;
+      height: 200px;
+  }
 #lang-welcome {
 position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 z-index: 4;
-
-
-
-font-size: 3rem;
+font-size: 8rem;
 font-weight: 550;
 color: white;
-
-
-
-
-
-background-image: url("assets/ani/test77.png");
 background-position: 0 -1000px;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-animation: fire 4s linear infinite;
+animation: fire 5s linear infinite;
+
+
 
 text-shadow: 15px 15px 8px rgba(10, 10, 10, 10.5);
 color: red;
-/* -webkit-text-stroke: 1px red; */
+-webkit-text-stroke: 0.5px red;
 opacity: 1;
 display: block;
 transition:  opacity 2s ease;
+
 }
 @keyframes fire {
     0% {
-      background-position: 0% 25%;
+      background-position: 0% 100%;
     }
 
     100% {
-      background-position: 0% 15%;
+      background-position: 0% 0%;
+    }
+
+    0% {
+      background-position: 0% 100%;
     }
   }
 
@@ -137,7 +139,7 @@ background-repeat: no-repeat;
 display: block;
 object-fit: scale-down;
 opacity: 1;
-z-index: 1;
+z-index: 5000;
 width: 100px;
 height: 100px;
 }
@@ -174,4 +176,465 @@ height: 100px;
   } */
   
 
+  .video-container {
+    position: absolute;
+    bottom: 190px;
+    left: 49%;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 300;
+    opacity: 1;
+}
+
+video {
+    position: relative;
+    top: 50%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    width: 103%;
+    height: auto;
+    overflow: hidden;
+    z-index: 300;
+  opacity: 1;
+}
+
+.bubble-burst {
+  position: absolute;
+  animation: bubbleBurstAnimation 300ms forwards;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: 1;
+  opacity: 0.2;
+}
+
+/* @keyframes bubbleBurstAnimation {
+  0%, 5% {
+      background-image: url('assets/ani/bubbleBurst/4/0001.png');
+  }
+  6%, 10% {
+      background-image: url('assets/ani/bubbleBurst/4/0002.png');
+  }
+  11%, 15% {
+      background-image: url('assets/ani/bubbleBurst/4/0003.png');
+  }
+  16%, 20% {
+      background-image: url('assets/ani/bubbleBurst/4/0004.png');
+  }
+  21%, 25% {
+      background-image: url('assets/ani/bubbleBurst/4/0005.png');
+  }
+  26%, 30% {
+      background-image: url('assets/ani/bubbleBurst/4/0006.png');
+  }
+  31%, 35% {
+      background-image: url('assets/ani/bubbleBurst/4/0007.png');
+  }
+  36%, 40% {
+      background-image: url('assets/ani/bubbleBurst/4/0008.png');
+  }
+  41%, 45% {
+      background-image: url('assets/ani/bubbleBurst/4/0009.png');
+  }
+  46%, 50% {
+      background-image: url('assets/ani/bubbleBurst/4/0010.png');
+  }
+  51%, 55% {
+      background-image: url('assets/ani/bubbleBurst/4/0011.png');
+  }
+  56%, 60% {
+      background-image: url('assets/ani/bubbleBurst/4/0012.png');
+  }
+  61%, 65% {
+      background-image: url('assets/ani/bubbleBurst/4/0013.png');
+  }
+  66%, 70% {
+      background-image: url('assets/ani/bubbleBurst/4/0014.png');
+  }
+  71%, 75% {
+      background-image: url('assets/ani/bubbleBurst/4/0015.png');
+  }
+  76%, 80% {
+      background-image: url('assets/ani/bubbleBurst/4/0016.png');
+  }
+  81%, 85% {
+      background-image: url('assets/ani/bubbleBurst/4/0017.png');
+  }
+  86%, 90% {
+      background-image: url('assets/ani/bubbleBurst/4/0018.png');
+  }
+  91%, 95% {
+      background-image: url('assets/ani/bubbleBurst/4/0019.png');
+  }
+  96%, 100% {
+      background-image: url('assets/ani/bubbleBurst/4/0020.png');
+  }
+} */
+
+
+@keyframes bubbleBurstAnimation {
+  0%, 10% {
+      background-image: url('assets/ani/bubbleBurst/4/0001.png');
+  }
+  11%, 20% {
+      background-image: url('assets/ani/bubbleBurst/4/0002.png');
+  }
+  21%, 30% {
+      background-image: url('assets/ani/bubbleBurst/4/0003.png');
+  }
+  31%, 40% {
+      background-image: url('assets/ani/bubbleBurst/4/0004.png');
+  }
+  41%, 50% {
+      background-image: url('assets/ani/bubbleBurst/4/0005.png');
+  }
+  51%, 60% {
+    background-image: url('assets/ani/bubbleBurst/4/0006.png');
+}
+61%, 70% {
+    background-image: url('assets/ani/bubbleBurst/4/0007.png');
+}
+71%, 80% {
+    background-image: url('assets/ani/bubbleBurst/4/0008.png');
+}
+81%, 90% {
+    background-image: url('assets/ani/bubbleBurst/4/0009.png');
+}
+91%, 100% {
+    background-image: url('assets/ani/bubbleBurst/4/0010.png');
+}
+}
+
+
+/* @keyframes bunnyAnimation {
+  0%, 4.75% {
+      background-image: url('assets/ani/bunny/bunny2/0001.png');
+  }
+  4.76%, 9.51% {
+      background-image: url('assets/ani/bunny/bunny2/0002.png');
+  }
+  9.52%, 14.27% {
+      background-image: url('assets/ani/bunny/bunny2/0003.png');
+  }
+  14.28%, 19.03% {
+      background-image: url('assets/ani/bunny/bunny2/0004.png');
+  }
+  19.04%, 23.79% {
+      background-image: url('assets/ani/bunny/bunny2/0005.png');
+  }
+  23.80%, 28.55% {
+      background-image: url('assets/ani/bunny/bunny2/0006.png');
+  }
+  28.56%, 33.31% {
+      background-image: url('assets/ani/bunny/bunny2/0007.png');
+  }
+  33.32%, 38.07% {
+      background-image: url('assets/ani/bunny/bunny2/0008.png');
+  }
+  38.08%, 42.83% {
+      background-image: url('assets/ani/bunny/bunny2/0009.png');
+  }Math.floor(bunny/bunny2/0010.png');
+  }
+  57.12%, 61.87% {
+      background-image: url('assets/ani/bunny/bunny2/0009.png');
+  }
+  61.88%, 66.63% {
+      background-image: url('assets/ani/bunny/bunny2/0008.png');
+  }
+  66.64%, 71.39% {
+      background-image: url('assets/ani/bunny/bunny2/0007.png');
+  }
+  71.40%, 76.15% {
+      background-image: url('assets/ani/bunny/bunny2/0006.png');
+  }
+  76.16%, 80.91% {
+      background-image: url('assets/ani/bunny/bunny2/0005.png');
+  }
+  80.92%, 85.67% {
+      background-image: url('assets/ani/bunny/bunny2/0004.png');
+  }
+  85.68%, 90.43% {
+      background-image: url('assets/ani/bunny/bunny2/0003.png');
+  }
+  90.44%, 95.19% {
+      background-image: url('assets/ani/bunny/bunny2/0002.png');
+  }
+  95.20%, 100% {
+      background-image: url('assets/ani/bunny/bunny2/0001.png');
+  }
+} */
+
+@keyframes bunnyAnimation {
+    0%, 5.88%     { background-image: url('public/assets/ani/bunny/bunny3/armmix/0001.png'); }
+    5.89%, 11.76% { background-image: url('public/assets/ani/bunny/bunny3/armmix/0002.png'); }
+    11.77%, 17.64%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0003.png'); }
+    17.65%, 23.52%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0004.png'); }
+    23.53%, 29.41%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0005.png'); }
+    29.42%, 35.29%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0006.png'); }
+    35.3%, 41.17% { background-image: url('public/assets/ani/bunny/bunny3/armmix/0007.png'); }
+    41.18%, 47.05%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0008.png'); }
+    47.06%, 52.94%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0009.png'); }
+    52.95%, 58.82%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0010.png'); }
+    58.83%, 64.7% { background-image: url('public/assets/ani/bunny/bunny3/armmix/0009.png'); }
+    64.71%, 70.59%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0008.png'); }
+    70.6%, 76.47% { background-image: url('public/assets/ani/bunny/bunny3/armmix/0007.png'); }
+    76.48%, 82.35%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0006.png'); }
+    82.36%, 88.23%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0005.png'); }
+    88.24%, 94.12%{ background-image: url('public/assets/ani/bunny/bunny3/armmix/0004.png'); }
+    94.13%, 100%  { background-image: url('public/assets/ani/bunny/bunny3/armmix/0003.png'); }
+}
+
+
+
+
+
+
+@keyframes armUpDownAnimation {
+  0%, 20%   { background-image: url('assets/ani/bunny/bunny3/armupdown/0001.png'); }
+  20.01%, 40%  { background-image: url('assets/ani/bunny/bunny3/armupdown/0002.png'); }
+  40.01%, 60%  { background-image: url('assets/ani/bunny/bunny3/armupdown/0003.png'); }
+  60.01%, 80%  { background-image: url('assets/ani/bunny/bunny3/armupdown/0004.png'); }
+  80.01%, 100% { background-image: url('assets/ani/bunny/bunny3/armupdown/0005.png'); }
+}
+
+@keyframes headswingAnimation {
+  0%, 4.35%     { background-image: url('assets/ani/bunny/bunny3/headswing/0001.png'); }
+  4.36%, 8.69%  { background-image: url('assets/ani/bunny/bunny3/headswing/0002.png'); }
+  8.70%, 13.04% { background-image: url('assets/ani/bunny/bunny3/headswing/0003.png'); }
+  13.05%, 17.39%{ background-image: url('assets/ani/bunny/bunny3/headswing/0004.png'); }
+  17.4%, 21.73% { background-image: url('assets/ani/bunny/bunny3/headswing/0005.png'); }
+  21.74%, 26.08%{ background-image: url('assets/ani/bunny/bunny3/headswing/0006.png'); }
+  26.09%, 30.43%{ background-image: url('assets/ani/bunny/bunny3/headswing/0007.png'); }
+  30.44%, 34.78%{ background-image: url('assets/ani/bunny/bunny3/headswing/0008.png'); }
+  34.79%, 39.13%{ background-image: url('assets/ani/bunny/bunny3/headswing/0009.png'); }
+  39.14%, 43.47%{ background-image: url('assets/ani/bunny/bunny3/headswing/0010.png'); }
+  43.48%, 47.82%{ background-image: url('assets/ani/bunny/bunny3/headswing/0011.png'); }
+  47.83%, 52.17%{ background-image: url('assets/ani/bunny/bunny3/headswing/0010.png'); }
+  52.18%, 56.52%{ background-image: url('assets/ani/bunny/bunny3/headswing/0009.png'); }
+  56.53%, 60.87%{ background-image: url('assets/ani/bunny/bunny3/headswing/0008.png'); }
+  60.88%, 65.21%{ background-image: url('assets/ani/bunny/bunny3/headswing/0007.png'); }
+  65.22%, 69.56%{ background-image: url('assets/ani/bunny/bunny3/headswing/0006.png'); }
+  69.57%, 73.91%{ background-image: url('assets/ani/bunny/bunny3/headswing/0005.png'); }
+  73.92%, 78.26%{ background-image: url('assets/ani/bunny/bunny3/headswing/0004.png'); }
+  78.27%, 82.6% { background-image: url('assets/ani/bunny/bunny3/headswing/0003.png'); }
+  82.61%, 86.95%{ background-image: url('assets/ani/bunny/bunny3/headswing/0002.png'); }
+  86.96%, 100%  { background-image: url('assets/ani/bunny/bunny3/headswing/0001.png'); }
+}
+
+.bunnyHandMix {
+  animation: bunnyAnimation 1s infinite;
+}
+
+.bunnyArmUpDown {
+
+  animation: armUpDownAnimation 0.5s forwards;
+}
+
+.bunnyHeadSwing {
+  animation: headswingAnimation 1s infinite;
+}
+
+#animatedBunny {
+  position: absolute;
+  bottom: 0px;
+ left: 50%;
+ transform: translateX(-50%);  /* This moves the element to the left by half its width */
+  width: 128px;  /* or whatever the image width is */
+  height: 256px; /* or whatever the image height is */
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3300
+}
+
+/* #rabbit {
+  position: absolute;
+   bottom: 0px;
+  left: 50%; 
+   transform: translateX(-50%); 
+  z-index: 10;
+  height: 50vh;
+  width: 9vw;
+  animation: rabbitBlowBubble1 800ms infinite;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: none !important;
+
+}
+
+
+
+@keyframes rabbitBlowBubble1 {
+0%, 25% {
+  background-image: url('/assets/img/rabbitAni/1.png');
+}
+26%, 50% {
+  background-image: url('/assets/img/rabbitAni/2.png');
+}
+51%, 75% {
+  background-image: url('/assets/img/rabbitAni/1.png');
+}
+76%, 100% {
+  background-image: url('/assets/img/rabbitAni/2.png');
+}
+}
+
+@keyframes rabbitBlowBubble2 {
+  0%, 6.6% {
+      background-image: url('/assets/img/rabbitAni/3.png');
+  }
+  6.7%, 13.3% {
+      background-image: url('/assets/img/rabbitAni/4.png');
+  }
+  13.4%, 20% {
+      background-image: url('/assets/img/rabbitAni/5.png');
+  }
+  20.1%, 26.6% {
+    background-image: url('/assets/img/rabbitAni/6.png');
+}
+26.7%, 33.3% {
+  background-image: url('/assets/img/rabbitAni/7.png');
+}
+33.4%, 40% {
+  background-image: url('/assets/img/rabbitAni/8.png');
+}
+40.1%, 46.6% {
+  background-image: url('/assets/img/rabbitAni/9.png');
+}
+46.7%, 53.3% {
+  background-image: url('/assets/img/rabbitAni/8.png');
+}
+53.4%, 60% {
+  background-image: url('/assets/img/rabbitAni/9.png');
+}
+60.1%, 66.6% {
+  background-image: url('/assets/img/rabbitAni/8.png');
+}
+66.7%, 73.3% {
+  background-image: url('/assets/img/rabbitAni/7.png');
+}
+73.3%, 80% {
+  background-image: url('/assets/img/rabbitAni/6.png');
+}
+80.1%, 86.6% {
+  background-image: url('/assets/img/rabbitAni/5.png');
+}
+86.6%, 93.3% {
+  background-image: url('/assets/img/rabbitAni/4.png');
+}
+93.3%, 100% {
+  background-image: url('/assets/img/rabbitAni/3.png');
+}
+}
+
+
+
+#yourContainerId {
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  left: 50%; 
+   transform: translateX(-50%); 
+
+}
+
+#testButton {
+  z-index: 10;
+  position: absolute;
+  top: 5px;
+}
+
+#canvas-bunny {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.videotest {
+  height: 300px;
+width: 300px
+} */
+
+#bubbleCanvas {
+  position: fixed;
+  top: 600px;
+  left: 500px;
+  z-index: 100;
+  width:700px;
+}
+
+.image-container {
+  position: absolute;
+  z-index: 44100;
+
+  user-select: none;
+  -webkit-user-select: none;  
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -ms-user-drag: none;
+  -moz-user-drag: none;
+  draggable: false;
+
+  /* Masking with radial gradient */
+  /* mask-image: radial-gradient(circle, transparent, black 100%, black);
+  -webkit-mask-image: radial-gradient(circle, transparent, black 100%, black); */
+  /* -webkit-mask-image: linear-gradient(to bottom, black 0%, black 10%, transparent 20%);
+  -webkit-mask-size: cover; */
+}
+
+/* .image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  
+  height: 100%;  
+  background-image: url('/assets/ani/bubbleImg/bubble1.png'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  z-index: 1200; 
   
+  mask-image: none;
+  -webkit-mask-image: none;
+} */
+
+
+.bubbleImage{
+  position: absolute;
+  /* top: 300px;
+  left: 300px;
+  z-index: 100;
+  opacity: 1; */
+  z-index: 100;
+}
+
+/* .image-container img {
+  transition: opacity 0.05s; 
+  opacity: 0;
+}
+
+.image-container img.active {
+  opacity: 1;
+}
+@keyframes slideTransition {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+} */
+
+/* .image-container img.sliding { */
+  /* animation: slideTransition 0.5s forwards; */
+/* } */
+
+#modelViewer {
+  position: absolute;
+  top: -700px;
+  width: 600px;
+  height: 1000px;
+}
+
+#myCanvas {
+  z-index: 2000;
+}

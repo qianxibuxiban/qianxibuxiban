@@ -1,5 +1,5 @@
 function navigation() {
-  let navItems = ["home", "kontakt", "about", "gallery"];
+  let navItems = ["home", "kontakt", "about"]; //"gallery"
   function menu(page) {
     for (var i = 0; i < navItems.length; i++) {
       if (page !== navItems[i]) {
@@ -14,22 +14,17 @@ function navigation() {
   };
 }
 export default navigation;
-
+// /<ul class="menu-item" id="lang-gallery">Gallery</ul>
 const menu = `
 <ul class="menu-item" id="lang-home">Home</ul>
 <ul class="menu-item" id="lang-about">About</ul>
 <ul class="menu-item" id="lang-kontakt">Kontakt</ul>
-<ul class="menu-item" id="lang-gallery">Gallery</ul>
 <ul id="lang-menu">
   <label for="language-select"></label>
   <select id="language-select">
+  <option value="zh">Chinese</option>
     <option value="en">English</option>
-    <option value="hr">Hrvatski</option>
-    <option value="it">Italiano</option>
-    <option value="sl">Slovenščina</option>
-    <option value="de">Deutsch</option>
-    <option value="es">Español</option>
-    <option value="pt">Português</option>
+
   </select>
 </ul>`;
 
@@ -98,9 +93,9 @@ function assignClickHandlers() {
   document.getElementById("lang-about").onclick = function () {
     nav.menu("about");
   };
-  document.getElementById("lang-gallery").onclick = function () {
-    nav.menu("gallery");
-  };
+  // document.getElementById("lang-gallery").onclick = function () {
+  //   nav.menu("gallery");
+  // };
 }
 
 // Call the function on page load

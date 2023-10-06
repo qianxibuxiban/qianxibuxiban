@@ -31,6 +31,8 @@
 //           // The image has loaded successfully, and the size contains [width, height].
 //           var width = size[0];
 //           var height = size[1];
+//           canvas.width = width * 0.5; // 300
+//           canvas.height = height * 0.5; // 300
 //           console.trace(
 //             "Image loaded successfully. Width:",
 //             width,
@@ -46,14 +48,14 @@
 //           // Draw the cropped image on the canvas
 //           ctx.drawImage(
 //             img,
-//             cropX, // Start cropping from the calculated x-coordinate
-//             cropY, // Start cropping from the calculated y-coordinate
-//             cropSize, // Width of the square to crop
-//             cropSize, // Height of the square to crop
+//             // cropX, // Start cropping from the calculated x-coordinate
+//             // cropY, // Start cropping from the calculated y-coordinate
+//             // cropSize, // Width of the square to crop
+//             // cropSize, // Height of the square to crop
 //             0,
 //             0,
-//             300,
-//             300
+//             width * 0.5, // 300
+//             height * 0.5 // 300
 //           );
 
 //           downloadImg(canvas);
@@ -89,7 +91,7 @@
 //               });
 //           },
 //           "image/jpeg",
-//           7
+//           0.5
 //         ); // You can adjust the compression level here (0.0 to 1.0)
 //       }
 //     };

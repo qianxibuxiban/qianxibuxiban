@@ -1,10 +1,9 @@
 // Get a reference to the container element
 const container = document.querySelector(".container");
-let thumbHeightOrWidth =
-  window.innerHeight > window.innerWidth
-    ? "thumb-wrapper-height"
-    : "thumb-wrapper";
-
+let thumbHeightOrWidth = "thumb-wrapper";
+// window.innerHeight > window.innerWidth
+//   ? "thumb-wrapper-height"
+//   : "thumb-wrapper";
 function addImages(index, path, origImg) {
   // Create a new div with the class "thumb-wrapper"
   const thumbWrapper = document.createElement("div");
@@ -36,22 +35,19 @@ function addImages(index, path, origImg) {
   container.appendChild(thumbWrapper);
 }
 function setImages() {
+  console.log("setImages called");
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
-  for (let i = 0; i < 16; i++) {
-    const path = `url('assets/thumbs/lucija/${i + 1}_thumbnail.jpeg')`; //`assets/img/lucija/${i}.png`;
-    const origImg = `url('assets/img/lucija/${i + 1}.png')`;
+  for (let i = 0; i < 18; i++) {
+    const path = `url('assets/img/${i + 1}.png')`; //`assets/img/lucija/${i}.png`;
+    const origImg = `url('assets/img/${i + 1}.png')`;
     addImages(i, path, origImg);
   }
-  for (let i = 1; i < 12; i++) {
-    const path = `url('assets/thumbs/lucija2/${i + 1}_thumbnail.jpeg')`;
-    const origImg = `url('assets/img/lucija2/${i + 1}.png')`;
-    addImages(i + 16, path, origImg);
-  }
-  addImages(27, `url('assets/img/lucija2/3.png')`);
+
+  // addImages(27, `url('assets/img/lucija2/3.png')`);
 }
-setImages();
+// setImages();
 // style="background:url('http://i.imgur.com/RiX7XfW.jpg')
 document.addEventListener("DOMContentLoaded", function () {
   function animate() {
@@ -68,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Get a random index to select a random thumbnail
     const randomIndex = getRandomIndex(thumbWrappers.length);
-
     // Select the thumbnail and full-image elements of the random thumbnail wrapper
     const randomThumbWrapper = thumbWrappers[randomIndex];
     const randomThumb = randomThumbWrapper.querySelector(".full-image");
@@ -152,7 +147,8 @@ function getImageDimensions(imageUrl, element, wellcomeMsg, wellcomeContainer) {
       centerScaleThumb(element, width, height, wellcomeMsg, wellcomeContainer);
     };
     // If there's an error loading the image, reject the promise
-    image.onerror = function () {
+    image.onerror = function (e) {
+      console.error("Error event:", e);
       reject(new Error("Failed to load the image."));
     };
   });
@@ -169,15 +165,15 @@ function adoptToScreen() {
   const width = window.innerWidth;
   const height = window.innerHeight;
   if (width < height) {
-    thumbHeightOrWidth = "thumb-wrapper-height";
+    // thumbHeightOrWidth = "thumb-wrapper-height";
     // Apply styles for width smaller than height
     document.querySelector(".container").style.gridTemplateColumns =
-      "repeat(4, 1fr)";
+      "repeat(3, 1fr)";
     setImages();
   } else {
-    thumbHeightOrWidth = "thumb-wrapper";
+    // thumbHeightOrWidth = "thumb-wrapper";
     document.querySelector(".container").style.gridTemplateColumns =
-      "repeat(7, 1fr)";
+      "repeat(6, 1fr)";
 
     setImages();
   }

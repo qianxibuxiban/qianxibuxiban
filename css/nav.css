@@ -7,6 +7,7 @@ display: flex;
 width: 100%;
 background-color: red;
 height: 60px;
+z-index: 200;
 }
 
 #slide-menu {
@@ -34,14 +35,19 @@ padding: 5px;
 .menu-item {
 margin-right: 20px;
 margin-left: 20px;
-margin-top: 10px;
+margin-top: 5px;
 }
 
 #lang-menu {
 margin-right: 20px;
 margin-left: 20px;
-margin-top: 10px;
+margin-top: 5px;
 }
+
+#lang-menu select {
+    font-size: 1.5rem; /* This is equivalent to 16px when the base font size is 16px */
+}
+
 
 /* Show the gallery options when hovering over .dropdown element */
 .dropdown:hover #gallery-select {

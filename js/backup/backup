@@ -1,0 +1,92 @@
+function generateBubbleImage() {
+  const imgContainer = document.createElement("div");
+  imgContainer.classList.add("image-container");
+  const img = document.createElement("img");
+  img.src = "public/assets/ani/bubbleImg/bubble2/0001.png";
+  img.alt = "Bubble Animation";
+
+  img.classList.add("sliding"); // Add this line here
+
+  imgContainer.appendChild(img);
+
+  const size = Math.random() * (150 - 50) + 50; // Random size between 50px and 200px
+  img.style.width = `${size}px`;
+  img.style.height = `${size}px`;
+
+  document.body.appendChild(imgContainer);
+  bubblesArray.push(imgContainer); // Add this line
+
+  const bubbleImages = [
+    // "/assets/ani/bubbleImg/bubble1/",
+    // "/assets/ani/bubbleImg/bubble2/",
+    // "/assets/ani/bubbleImg/bubble3/",
+    // "/assets/ani/bubbleImg/bubble4/",
+    // "/assets/ani/bubbleImg/bubble5/",
+    "/assets/ani/bubbleImg/bubble8/",
+  ];
+  const randomBubbleImg = Math.floor(Math.random() * bubbleImages.length) + 0;
+  const images = [];
+  const imgPrefix = bubbleImages[randomBubbleImg];
+  for (let i = 1; i <= 90; i++) {
+    images.push(imgPrefix + String(i).padStart(4, "0") + ".png");
+  }
+  let currentBubbleFrame = 0;
+  setInterval(() => {
+    // Find the current active image and remove the active class
+    const currentImage = imgContainer.querySelector("img.active");
+    if (currentImage) {
+      currentImage.classList.remove("active");
+    }
+
+    // Set the source of the next image and add the active class
+    img.src = images[currentBubbleFrame];
+    img.classList.add("active");
+
+    currentBubbleFrame = (currentBubbleFrame + 1) % 90;
+  }, 50);
+
+  imgContainer.destroy = false;
+  imgContainer.onclick = function () {
+    this.destroy = true;
+  };
+
+  imgContainer.addEventListener("dragstart", function (e) {
+    e.preventDefault();
+  });
+  moveBubble(imgContainer);
+}
+
+function generateBubbleImage() {
+  const imgContainer = document.createElement("div");
+  imgContainer.classList.add("image-container");
+  imgContainer.style.zIndex = "1000"; // set a high z-index
+
+  const img = document.createElement("img");
+
+  img.alt = "Bubble Animation";
+  img.classList.add("sliding");
+
+  imgContainer.appendChild(img);
+
+  const size = Math.random() * (100 - 30) + 50;
+  img.style.width = `${size}px`;
+  img.style.height = `${size}px`;
+
+  document.body.appendChild(imgContainer);
+  bubblesArray.push(imgContainer);
+
+  imgContainer.destroy = false;
+  imgContainer.onclick = function () {
+    this.destroy = true;
+  };
+  imgContainer.style.opacity = getRandomBetween(0.3, 1);
+  const randomNumber = Math.floor(Math.random() * 89) + 1; // Generates a number between 1 and 89
+  const formattedNumber = String(randomNumber).padStart(4, "0");
+  img.src = `/assets/ani/bubbleImg/bubble8/${formattedNumber}.png`;
+
+  imgContainer.addEventListener("dragstart", function (e) {
+    e.preventDefault();
+  });
+
+  moveBubble(imgContainer);
+}
