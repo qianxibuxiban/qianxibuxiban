@@ -271,19 +271,19 @@ function generateBubbleImage() {
   // }
   // let currentBubbleFrame = Math.floor(Math.random() * images.length);
 
-  setInterval(() => {
-    // Find the current active image and remove the active class
-    const currentImage = imgContainer.querySelector("img.active");
-    if (currentImage) {
-      currentImage.classList.remove("active");
-    }
+  // setInterval(() => {
+  //   // Find the current active image and remove the active class
+  //   const currentImage = imgContainer.querySelector("img.active");
+  //   if (currentImage) {
+  //     currentImage.classList.remove("active");
+  //   }
 
-    // Set the source of the next image and add the active class
-    img.src = images[currentBubbleFrame];
-    img.classList.add("active");
+  //   // Set the source of the next image and add the active class
+  //   img.src = images[currentBubbleFrame];
+  //   img.classList.add("active");
 
-    currentBubbleFrame = (currentBubbleFrame + 1) % 71;
-  }, 100);
+  //   currentBubbleFrame = (currentBubbleFrame + 1) % 71;
+  // }, 100);
 
   imgContainer.style.opacity = getRandomBetween(0.3, 0.7);
   imgContainer.destroy = false;
