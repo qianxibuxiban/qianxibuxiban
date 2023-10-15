@@ -10,8 +10,8 @@
 
 
     <title>Vite App</title>
-    <script type="module" crossorigin src="/qianxibuxiban/assets/index-51ded0db.js"></script>
-    <link rel="stylesheet" href="/qianxibuxiban/assets/index-50037829.css">
+    <script type="module" crossorigin src="/qianxibuxiban/assets/index-784444e5.js"></script>
+    <link rel="stylesheet" href="/qianxibuxiban/assets/index-b533e07e.css">
   </head>
   <body>
 
@@ -56,17 +56,22 @@
   </div>
        </div>
        <div id="blog">
+        <div id="uploadContainer">
         <input id="blog-title"/>
         <input id="blog-text"/>
-
-    
         <!-- Multiple Images Upload -->
         <input type="file" id="blog-images" multiple>
         <button id="blog-create">Create</button>
+      </div>
 
         <div id="blogsContainer"></div>
-        <div class="overlay" id="overlay"></div>
-        <div class="overlay" id="lose-btn"></div>
+        <div class="overlay" id="overlay">
+          <button id="close-btn">X</button>
+          <button id="arrowLeft">←</button>
+          <button id="arrowRight">→</button>
+        </div>
+
+        <img id="selImg"></img>
         
        </div>
        
